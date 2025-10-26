@@ -14,6 +14,7 @@ export default function Dashboard() {
     const total = tickets.length;
     const open = tickets.filter((ticket) => ticket.status === 'open').length;
     const resolved = tickets.filter((ticket) => ticket.status === 'closed').length;
+
     return [
       {
         label: 'Total tickets',
@@ -37,14 +38,16 @@ export default function Dashboard() {
     <div className="layout">
       <Nav />
       <main className="layout-main">
-        <div className="container card-grid" style={{ gap: '2rem' }}>
-          <section>
-            <h1 style={{ fontSize: '2.25rem', marginBottom: '0.5rem' }}>Welcome back{session ? `, ${session.user.email}` : ''}!</h1>
-            <p style={{ color: 'var(--text-muted)', maxWidth: 640 }}>
-              View the health of your support pipeline at a glance. Stay ahead of the queue and keep your
-              customers delighted.
+        <div className="container">
+          <section className="dashboard-header">
+            <h1 className="dashboard-title">
+              Welcome back{session ? `, ${session.user.email}` : ''}!
+            </h1>
+            <p className="dashboard-text">
+              View the health of your support pipeline at a glance. Stay ahead of the queue and keep
+              your customers delighted.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+            <div className="dashboard-actions">
               <Button as={Link} to="/tickets" variant="primary">
                 Manage tickets
               </Button>
@@ -53,12 +56,13 @@ export default function Dashboard() {
               </Button>
             </div>
           </section>
-          <section className="card-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
+
+          <section className="card-grid">
             {metrics.map((metric) => (
               <Card key={metric.label}>
-                <span style={{ fontSize: '0.9rem', color: 'var(--brand)', fontWeight: 600 }}>{metric.label}</span>
-                <div style={{ fontSize: '2.5rem', fontWeight: 800, margin: '0.5rem 0' }}>{metric.value}</div>
-                <p style={{ color: 'var(--text-muted)', margin: 0 }}>{metric.description}</p>
+                <span className="metric-label">{metric.label}</span>
+                <div className="metric-value">{metric.value}</div>
+                <p className="metric-description">{metric.description}</p>
               </Card>
             ))}
           </section>

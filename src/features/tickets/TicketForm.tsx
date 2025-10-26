@@ -32,7 +32,8 @@ export default function TicketForm({ ticket, onSubmit, onCancel, submitLabel }: 
     });
   }, [ticket]);
 
-  const handleChange = (field: keyof TicketInput) =>
+  const handleChange =
+    (field: keyof TicketInput) =>
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       const next = { ...values, [field]: event.target.value } as TicketInput;
       setValues(next);
@@ -67,6 +68,7 @@ export default function TicketForm({ ticket, onSubmit, onCancel, submitLabel }: 
         />
         {errors.title && <span className="field-error">{errors.title}</span>}
       </div>
+
       <div className="field">
         <label htmlFor="description">Description</label>
         <textarea
@@ -77,28 +79,33 @@ export default function TicketForm({ ticket, onSubmit, onCancel, submitLabel }: 
         />
         {errors.description && <span className="field-error">{errors.description}</span>}
       </div>
-      <div className="field">
-        <label htmlFor="status">Status</label>
-        <select id="status" value={values.status} onChange={handleChange('status')}>
-          {statusOptions.map((option) => (
-            <option key={option} value={option}>
-              {option.replace('_', ' ')}
-            </option>
-          ))}
-        </select>
-        {errors.status && <span className="field-error">{errors.status}</span>}
+
+      <div className="form-row">
+        <div className="field">
+          <label htmlFor="status">Status</label>
+          <select id="status" value={values.status} onChange={handleChange('status')}>
+            {statusOptions.map((option) => (
+              <option key={option} value={option}>
+                {option.replace('_', ' ')}
+              </option>
+            ))}
+          </select>
+          {errors.status && <span className="field-error">{errors.status}</span>}
+        </div>
+
+        <div className="field">
+          <label htmlFor="priority">Priority</label>
+          <select id="priority" value={values.priority} onChange={handleChange('priority')}>
+            {priorityOptions.map((option) => (
+              <option key={option} value={option}>
+                {option.charAt(0).toUpperCase() + option.slice(1)}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-      <div className="field">
-        <label htmlFor="priority">Priority</label>
-        <select id="priority" value={values.priority} onChange={handleChange('priority')}>
-          {priorityOptions.map((option) => (
-            <option key={option} value={option}>
-              {option.charAt(0).toUpperCase() + option.slice(1)}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+
+      <div className="form-actions">
         {onCancel && (
           <Button type="button" variant="ghost" onClick={onCancel}>
             Cancel
