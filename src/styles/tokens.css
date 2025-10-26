@@ -1,0 +1,276 @@
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --brand: #6366f1;
+  --brand-soft: #eef2ff;
+  --text-strong: #111827;
+  --text-muted: #4b5563;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --status-open: #22c55e;
+  --status-progress: #f59e0b;
+  --status-closed: #9ca3af;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --shadow-lg: 0 40px 60px -40px rgba(15, 23, 42, 0.35);
+  --shadow-md: 0 20px 45px -30px rgba(15, 23, 42, 0.25);
+  --shadow-sm: 0 8px 25px -12px rgba(15, 23, 42, 0.1);
+  --container-width: 1440px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-strong);
+  min-height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+.container {
+  width: min(100%, var(--container-width));
+  margin: 0 auto;
+  padding: clamp(1.5rem, 2vw, 3rem);
+}
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-main {
+  flex: 1;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 2vw, 2rem);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(99, 102, 241, 0.05);
+}
+
+.card-grid {
+  display: grid;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-full {
+  width: 100%;
+}
+
+.button-primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.button-secondary {
+  background: #fff;
+  color: var(--brand);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.button-ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.badge-open {
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--status-open);
+}
+
+.badge-in_progress {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--status-progress);
+}
+
+.badge-closed {
+  background: rgba(156, 163, 175, 0.15);
+  color: var(--status-closed);
+}
+
+.hero {
+  position: relative;
+  padding: clamp(4rem, 6vw, 7rem) 0;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 200px;
+  background: url('../assets/wave.svg') no-repeat center/cover;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.hero-text {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-muted);
+}
+
+.circle {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.circle-one {
+  top: 10%;
+  right: 10%;
+  width: clamp(80px, 12vw, 160px);
+}
+
+.circle-two {
+  bottom: 10%;
+  left: 5%;
+  width: clamp(100px, 15vw, 200px);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1rem, 2vw, 1.5rem) 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.nav-links a.active {
+  color: var(--brand);
+}
+
+.form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.field label {
+  font-weight: 600;
+}
+
+.field input,
+.field textarea,
+.field select {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  background: #fff;
+}
+
+.field textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.field-error {
+  color: #dc2626;
+  font-size: 0.85rem;
+}
+
+.table-empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.ticket-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .hero::after {
+    height: 140px;
+  }
+}
