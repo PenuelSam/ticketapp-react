@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import { useAuth } from '../features/auth/useAuth';
+// eslint-disable-next-line no-unused-vars
 import { FiMenu, FiX, FiUser } from 'react-icons/fi'; 
 
 export default function Nav() {
@@ -10,6 +11,7 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const authed = isAuthenticated();
+  // eslint-disable-next-line no-unused-vars
   const user = authed ? getSession() : null;
 
   const handleLogout = () => {
@@ -22,7 +24,7 @@ export default function Nav() {
       <nav className="navbar" aria-label="Primary navigation">
         <div className="nav-brand">
           <Link to="/" className="nav-logo">
-            TicketFlow
+            TicketApp
           </Link>
 
           <button
@@ -53,9 +55,9 @@ export default function Nav() {
               </NavLink>
 
               {/* User Icon instead of email */}
-              <div className="nav-user">
+              {/* <div className="nav-user">
                 <FiUser size={20} />
-              </div>
+              </div> */}
 
               <Button variant="ghost" onClick={handleLogout}>
                 Logout
@@ -64,10 +66,13 @@ export default function Nav() {
           ) : (
             <Link
               to="/auth/login"
-              className="button button-secondary"
+              className=""
               onClick={() => setMenuOpen(false)}
             >
-              Log in
+              <Button variant="ghost">
+                Login
+              </Button>
+             
             </Link>
           )}
         </div>

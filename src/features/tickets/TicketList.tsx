@@ -77,7 +77,7 @@ export default function TicketList() {
                           <p>{ticket.description || 'No description provided.'}</p>
                         </div>
                         <div className="ticket-priority">
-                          <span>Priority</span>
+                          <span>Priority:</span>
                           <div>{ticket.priority}</div>
                         </div>
                       </div>

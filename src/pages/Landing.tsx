@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import circleOne from '../assets/circle1.svg';
 import circleTwo from '../assets/circle2.svg';
 import Card from '../components/Card';
+import Footer from '../components/Footer';
 
 export default function Landing() {
   return (
@@ -12,6 +13,7 @@ export default function Landing() {
       <main className="layout-main">
         {/* HERO SECTION */}
         <section className="hero">
+
           {/* Background wave */}
           <div className="hero-bg" aria-hidden="true">
             <svg
@@ -54,7 +56,7 @@ export default function Landing() {
                 speed. Collaborate effortlessly and keep everyone in the loop.
               </p>
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <Button as={Link} to="/auth/login" variant="primary">
+                <Button className='dis-btn' as={Link} to="/auth/login" variant="primary">
                   Log in
                 </Button>
                 <Button as={Link} to="/auth/signup" variant="secondary">
@@ -109,12 +111,8 @@ export default function Landing() {
           </div>
         </section>
 
-        {/* FOOTER */}
-        <footer>
-          <div className="container">
-            <p>© 2025 TicketApp React. Built with React + Vite + TypeScript.</p>
-          </div>
-        </footer>
+       
+       <Footer />
       </main>
     </div>
   );

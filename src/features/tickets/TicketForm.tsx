@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 
 type TicketFormProps = {
   ticket?: Ticket;
+  // eslint-disable-next-line no-unused-vars
   onSubmit: (values: TicketInput) => void;
   onCancel?: () => void;
   submitLabel?: string;
