@@ -4,6 +4,9 @@ TicketApp React is a lightweight customer support dashboard that lets small team
 support tickets without leaving the browser. It demonstrates a complete authentication flow, protected routes,
 and a ticket management experience powered by localStorage.
 
+
+ **Live URL:** https://ticketapp-react-ten.vercel.app/  
+ **GitHub Repository:** https://github.com/PenuelSam/ticketapp-react
 ## Tech stack
 
 - [React](https://react.dev/) with [Vite](https://vitejs.dev/) for a fast TypeScript-first DX

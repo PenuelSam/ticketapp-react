@@ -425,7 +425,7 @@ button {
 .dashboard-actions {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 /* Card grid layout */
@@ -678,12 +678,13 @@ textarea {
   .content-right { width: 100%; padding: 1.5rem; }
 }
 
-
+/* ========== FOOTER ========== */
+footer { text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
+footer p { margin: 0; font-size: 0.95rem; }
 
 .site-footer {
   background: var(--surface);
   color: var(--text-muted);
-  margin-top: 4rem;
   /* border-top: 1px solid var(--border); */
   padding: clamp(2rem, 4vw, 4rem) 0;
 }
