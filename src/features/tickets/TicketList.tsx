@@ -50,7 +50,7 @@ export default function TicketList() {
             </Button>
           </div>
 
-          {/* Show Ticket Form when creating */}
+        
           {creating ? (
             <Card className="ticket-form-card">
               <TicketForm
@@ -60,7 +60,7 @@ export default function TicketList() {
               />
             </Card>
           ) : (
-            // Show Ticket List when not creating
+            
             <>
               {tickets.length === 0 ? (
                 <Card className="table-empty">

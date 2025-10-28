@@ -17,8 +17,11 @@ type Ticket = TicketInput & {
 
 type TicketStore = {
   tickets: Ticket[];
+  // eslint-disable-next-line no-unused-vars
   create: (input: TicketInput) => void;
+  // eslint-disable-next-line no-unused-vars
   update: (id: string, input: TicketInput) => void;
+  // eslint-disable-next-line no-unused-vars
   remove: (id: string) => void;
 };
 

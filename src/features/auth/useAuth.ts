@@ -13,7 +13,9 @@ type Session = {
 };
 
 type AuthResult = {
+  // eslint-disable-next-line no-unused-vars
   login: (email: string, password: string) => boolean;
+  // eslint-disable-next-line no-unused-vars
   signup: (email: string, password: string) => boolean;
   logout: () => void;
   isAuthenticated: () => boolean;

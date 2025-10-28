@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import { useAuth } from '../features/auth/useAuth';
-// eslint-disable-next-line no-unused-vars
-import { FiMenu, FiX, FiUser } from 'react-icons/fi'; 
+import { FiMenu, FiX } from 'react-icons/fi'; 
 
 export default function Nav() {
   const { logout, isAuthenticated, getSession } = useAuth();
@@ -53,11 +52,6 @@ export default function Nav() {
               >
                 Tickets
               </NavLink>
-
-              {/* User Icon instead of email */}
-              {/* <div className="nav-user">
-                <FiUser size={20} />
-              </div> */}
 
               <Button variant="ghost" onClick={handleLogout}>
                 Logout
